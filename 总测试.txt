@@ -1,0 +1,11 @@
+2022-01-25 23:59:07.986221
+trans_prob:
+ [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+trial:  0
+set zero finished 23:59:09 [   3   22 4957 4479  539]
+double finished 23:59:10 [   1   22 9574  371   32]
+single finished 23:59:11 [   8   33 9761  153   45]
+discount slide finished 23:59:14 [   1    9 4608 4868  514]
+slide finished 23:59:17 [   1   21 4742 4727  509]
+discount finished 00:00:01 [   2    7 9934   31   26]
+trial:  1
