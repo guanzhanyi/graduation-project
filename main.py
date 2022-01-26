@@ -2,7 +2,7 @@ import set_zero
 import single_feedback
 import double_feedback
 import ss_window
-
+import setting
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -18,29 +18,29 @@ print(datetime.now())
 if __name__ == '__main_ _':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
-    trial = 10
+    trial = 13
     # 大周期
     big_circle = 600
     # 置零偏差
-    piancha = 0
+    piancha = setting.piancha 
     # 折扣系数
-    discount_factor_ds = 1
-    discount_factor_d = 1
+    discount_factor_ds  = setting.discount_factor_ds 
+    discount_factor_d  = setting.discount_factor_d
     
-    add = 1
-    sub = 1
+    add = setting.add
+    sub = setting.sub
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
-    slide_window_side = 5 * small_circle
+    slide_window_side = setting.slide_window_side
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     # 用于求回归的最佳情况
     # 用于画图，累加每一次实验的结果
     double_regret_accumulation = np.array([0.0] * Time)
@@ -69,7 +69,7 @@ if __name__ == '__main_ _':
 
     for i in range(trial):
         print("trial: ", i, flush=True)
-        set_zero,  sz_accuracy, choices = set_zero.d_set_zero(Time, pred_prob, trans_prob,rates, bests, big_circle, small_circle, piancha, best_arms)
+        set_zero_regret,  sz_accuracy, choices = set_zero.d_set_zero(Time, pred_prob, trans_prob,rates, bests, big_circle, small_circle, piancha, best_arms)
         print("set zero finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True,)
         double_regret , dou_accuracy, choices= double_feedback.double_feedback(Time, pred_prob, trans_prob, rates, bests,big_circle, small_circle,best_arms)
         print("double finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
@@ -83,7 +83,7 @@ if __name__ == '__main_ _':
         print("discount finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         
         double_regret_accumulation = double_regret_accumulation + double_regret
-        set_zero_accumulation = set_zero_accumulation + set_zero
+        set_zero_accumulation = set_zero_accumulation + set_zero_regret
         single_regret_accumulation = single_regret_accumulation + single_regret
         discount_slide_window_accumulation = discount_slide_window_accumulation + discount_slide_window
         discount_accumulation = discount_accumulation + discount
@@ -118,7 +118,7 @@ if __name__ == '__main_ _':
 
 # set zero 偏移测试
 if __name__ == '__main_ _':
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 10
     # 大周期
@@ -126,15 +126,15 @@ if __name__ == '__main_ _':
     # 置零偏差
     pianchas = [0.1, 0.3, 0.5, 0.7, 0.9, 0]
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
-    slide_window_side = 1 * small_circle
+    slide_window_side = setting.slide_window_side
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
 
     bests = []
     best_arms = []
@@ -164,19 +164,19 @@ if __name__ == '__main_ _':
     plt.show()
 # double 与 single 比较
 if __name__ == '__main_ _':
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 50
     # 大周期
-    rates = np.array([2, 3, 5, 6, 9])
-    big_circle = 3600
+    rates = setting.rates
+    big_circle = setting.big_circle
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     # 用于求回归的最佳情况
     # 用于画图，累加每一次实验的结果
     double_regret_accumulation = np.array([0.0] * Time)
@@ -221,30 +221,30 @@ if __name__ == '__main_ _':
     plt.show()
 
 # double 与 slide_window 比较
-if __name__ == '__main_ _':
+if __name__ == '__main__':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
-    trial = 1
+    trial = 3
     # 大周期
-    big_circle = 3600
+    big_circle = setting.big_circle
     # 折扣系数
-    discount_factor_ds = 1
-    discount_factor_d = 1
+    discount_factor_ds  = setting.discount_factor_ds 
+    discount_factor_d  = setting.discount_factor_d
     
-    add = 1
-    sub = 1
+    add = setting.add
+    sub = setting.sub
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
-    slide_window_side = 0.1 * small_circle
+    slide_window_side = setting.slide_window_side
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     # 用于求回归的最佳情况
     # 用于画图，累加每一次实验的结果
     double_regret_accumulation = np.array([0.0] * Time)
@@ -308,26 +308,26 @@ if __name__ == '__main_ _':
 if __name__ == '__main_ _':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 5
     # 大周期
-    big_circle = 3600
+    big_circle = setting.big_circle
     # 折扣系数
-    discount_factor_ds = 1
-    discount_factor_d = 1
+    discount_factor_ds  = setting.discount_factor_ds 
+    discount_factor_d  = setting.discount_factor_d
     
-    add = 2
-    sub = 2
+    add = setting.add
+    sub = setting.sub
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     bests = []
     best_arms = []
     for i in range(len(trans_prob)):
@@ -364,27 +364,27 @@ if __name__ == '__main_ _':
     plt.show()
 
 # 折扣系数比较
-if __name__ == '__main__':
+if __name__ == '__main_ _':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 10
     # 大周期
-    big_circle = 3600
+    big_circle = setting.big_circle
     # 折扣系数
     
-    add = 1
-    sub = 1
+    add = setting.add
+    sub = setting.sub
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     bests = []
     best_arms = []
     for i in range(len(trans_prob)):
@@ -395,7 +395,7 @@ if __name__ == '__main__':
     bests = np.array(bests)
     best_arms = np.array(best_arms)
     discount_factors = [0.1, 0.3, 0.5, 0.8, 0.9, 0.95]
-    slide_window_side = 300
+    slide_window_side = setting.slide_window_side
     for discount_factor in discount_factors:
         discount_factor_ds = discount_factor_d = discount_factor
 
@@ -440,24 +440,24 @@ if __name__ == '__main__':
 if __name__ == '__main_ _':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 1
     # 大周期
-    big_circle = 3600
+    big_circle = setting.big_circle
     # 折扣系数
     
-    add = 3
+    add = setting.add
     sub = 5
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     bests = []
     best_arms = []
     for i in range(len(trans_prob)):
@@ -468,7 +468,7 @@ if __name__ == '__main_ _':
     bests = np.array(bests)
     best_arms = np.array(best_arms)
     discount_factor = 1
-    slide_window_side = 0.3 * small_circle
+    slide_window_side = setting.slide_window_side
     slide_window_accumulation = np.array([0.0] * Time)
     sli_accuracy_acc = 0
 
@@ -492,24 +492,24 @@ if __name__ == '__main_ _':
 if __name__ == '__main_ _':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 3
     # 大周期
-    big_circle = 3600
+    big_circle = setting.big_circle
     # 折扣系数
     
     adds = [1,2,3,4,5,6,7,8,9,10]
-    sub = 3
+    sub = setting.sub
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     bests = []
     best_arms = []
     for i in range(len(trans_prob)):
@@ -520,7 +520,7 @@ if __name__ == '__main_ _':
     bests = np.array(bests)
     best_arms = np.array(best_arms)
     discount_factor = 1
-    slide_window_side = 0.3 * small_circle
+    slide_window_side = setting.slide_window_side
     slide_window_accumulation = np.array([0.0] * Time)
     sli_accuracy_acc = 0
 
@@ -546,24 +546,24 @@ if __name__ == '__main_ _':
 if __name__ == '__main_ _':
     # 生成50个trans_prob
     # datetime slot
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 3
     # 大周期
-    big_circle = 3600
+    big_circle = setting.big_circle
     # 折扣系数
     
-    add = 3
+    add = setting.add
     subs = [1,2,3,4,5,6,7,8,9,10]
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
     bests = []
     best_arms = []
     for i in range(len(trans_prob)):
@@ -574,7 +574,7 @@ if __name__ == '__main_ _':
     bests = np.array(bests)
     best_arms = np.array(best_arms)
     discount_factor = 1
-    slide_window_side = 0.3 * small_circle
+    slide_window_side = setting.slide_window_side
     slide_window_accumulation = np.array([0.0] * Time)
     sli_accuracy_acc = 0
 

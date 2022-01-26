@@ -8,20 +8,20 @@ plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
-sys.stdout = open('_增加测试.txt', 'a',encoding='utf8')
+sys.stdout = open('_周期测试.txt', 'a',encoding='utf8')
 print(datetime.now())
 
 if __name__ == '__main__':
     # 生成50个trans_prob
     # datetime slot
-    Time = setting.Time
+    Time = 100000
     # 实验次数
     trial = 3
     # 大周期
-    big_circle = setting.big_circle
+    big_circles = [600,1200,2400,3600,5000,10000,50000]
     # 折扣系数
     
-    adds = [1,2,3,4,5,6,7,8,9,10]
+    add = setting.add
     sub = setting.sub
 
     rates = setting.rates
@@ -29,7 +29,6 @@ if __name__ == '__main__':
     #trans_prob = setting.trans_prob
     trans_prob = setting.trans_prob
     # 滑动窗口大小
-    small_circle = big_circle // len(trans_prob)
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
     pred_prob = setting.pred_prob
@@ -45,19 +44,20 @@ if __name__ == '__main__':
     discount_factor = 1
     slide_window_side = setting.slide_window_side
 
-    for add in adds:
+    for big_circle in big_circles:
+        small_circle = big_circle // len(trans_prob)
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
             slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, add, sub, best_arms)
-            print(add,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+            print(big_circle,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy
 
     # 画图
         print(" slide:",sli_accuracy_acc/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), slide_window_accumulation / trial,
-                label='滑动窗口双反馈'+' add:' + str(add))
+                label='滑动窗口'+' 周期:' + str(big_circle))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
     plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))

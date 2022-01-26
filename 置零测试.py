@@ -1,5 +1,5 @@
 import set_zero
-
+import setting
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -7,28 +7,27 @@ plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
-sys.stdout = open('置零测试.txt', 'a',encoding='utf8')
+sys.stdout = open('_置零测试.txt', 'a',encoding='utf8')
 
 print(datetime.now())
 
 if __name__ == '__main__':
-    Time = 10000
+    Time = setting.Time
     # 实验次数
     trial = 3
     # 大周期
-    big_circle = 600
+    big_circle = setting.big_circle
     # 置零偏差
     pianchas = [0.1, 0.3, 0.5, 0.7, 0.9, 0]
 
-    rates = np.array([2, 3, 5, 6, 9])
+    rates = setting.rates
     # 两个
-    trans_prob = [[0.9, 0.8, 0.65, 0.63, 0.1], [0.99, 0.85, 0.7, 0.15, 0.01]]
+    trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
-    slide_window_side = 1 * small_circle
     print("trans_prob:\n", trans_prob)
     # 预测概率分布
-    pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
+    pred_prob = setting.pred_prob
 
     bests = []
     best_arms = []
