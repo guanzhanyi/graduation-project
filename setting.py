@@ -5,19 +5,21 @@ pred_prob = np.array([0.1, 0.3, 0.6, 0.7, 0.9])
 
 rates = np.array([2, 3, 5, 7, 9])
 
+# 滑动窗口
 slide_window_side = 300
-
+# 周期
 big_circle = 3600
-
+# 时长
 Time = 10000
-
-add = 2
-
-sub = 2
-
+# 成功增加次数
+succ_count = 2
+# 失败增加次数
+fail_count = 2
+# 置零偏差时机
 piancha = 0 
-
+# 置零滑动窗口算法折扣系数
 discount_factor_ds = 1
+# 折扣TS算法折扣系数
 discount_factor_d = 1
 
 # print(trans_prob[0]*pred_prob*rates)

@@ -21,8 +21,8 @@ if __name__ == '__main__':
     big_circle = setting.big_circle
     # 折扣系数
     
-    adds = [1,2,3,4,5,6,7,8,9,10]
-    sub = setting.sub
+    succ_counts = [1,2,3,4,5,6,7,8,9,10]
+    fail_count = setting.fail_count
 
     rates = setting.rates
     # 两个
@@ -45,19 +45,19 @@ if __name__ == '__main__':
     discount_factor = 1
     slide_window_side = setting.slide_window_side
 
-    for add in adds:
+    for succ_count in succ_counts:
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
-            slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, add, sub, best_arms)
-            print(add,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+            slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
+            print(succ_count,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy
 
     # 画图
         print(" slide:",sli_accuracy_acc/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), slide_window_accumulation / trial,
-                label='滑动窗口双反馈'+' add:' + str(add))
+                label='滑动窗口双反馈'+' succ_count:' + str(succ_count))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
     plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))

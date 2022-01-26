@@ -21,8 +21,8 @@ if __name__ == '__main__':
     big_circle = 9000
     # 折扣系数
     
-    add = setting.add
-    sub = setting.sub
+    succ_count = setting.succ_count
+    fail_count = setting.fail_count
 
     rates = setting.rates
     trans_prob = [[9.17232238e-01, 7.73003868e-01, 3.40853342e-01, 2.76486244e-01, 2.69665310e-01],
@@ -102,7 +102,7 @@ if __name__ == '__main__':
     for i in range(trial):
         double_regret , dou_accuracy, choices = double_feedback.double_feedback(Time, pred_prob, trans_prob, rates, bests,big_circle, small_circle,best_arms)
         print("double finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
-        slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, add, sub, best_arms)
+        slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
         print(big_circle,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         double_regret_accumulation = double_regret_accumulation + double_regret
         slide_window_accumulation = slide_window_accumulation + slide_window

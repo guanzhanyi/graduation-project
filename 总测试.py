@@ -29,8 +29,8 @@ if __name__ == '__main__':
     discount_factor_ds  = setting.discount_factor_ds 
     discount_factor_d  = setting.discount_factor_d
     
-    add = setting.add
-    sub = setting.sub
+    succ_count = setting.succ_count
+    fail_count = setting.fail_count
 
     rates = setting.rates
     trans_prob =  setting.trans_prob
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     slide_window_accumulation = np.array([0.0] * Time)
     discount_accumulation = np.array([0.0] * Time)
     discount_slide_window_accumulation = np.array([0.0] * Time)
-    add_discount_slide_window_accumulation = np.array([0.0] * Time)
+    succ_count_discount_slide_window_accumulation = np.array([0.0] * Time)
 
     sz_accuracy_acc = 0
     dou_accuracy_acc= 0
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     ds_accuracy_acc = 0
     sli_accuracy_acc = 0 
     dis_accuracy_acc = 0
-    add_accuracy_acc = 0
+    succ_count_accuracy_acc = 0
     bests = []
     best_arms = []
     for i in range(len(trans_prob)):
@@ -81,8 +81,8 @@ if __name__ == '__main__':
         print("slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         discount, dis_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, discount_factor_d, Time, 1, 1, best_arms)
         print("discount finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
-        add_regret, add_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, discount_factor_d, Time, add, sub, best_arms)
-        print("add finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        succ_count_regret, succ_count_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, succ_count, fail_count, best_arms)
+        print("succ_count finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
 
         double_regret_accumulation += double_regret
         set_zero_accumulation += set_zero_regret
@@ -90,7 +90,7 @@ if __name__ == '__main__':
         discount_slide_window_accumulation += discount_slide_window
         discount_accumulation += discount
         slide_window_accumulation += slide_window
-        add_discount_slide_window_accumulation += add_regret
+        succ_count_discount_slide_window_accumulation += succ_count_regret
 
         sz_accuracy_acc += sz_accuracy
         dou_accuracy_acc += dou_accuracy
@@ -98,10 +98,10 @@ if __name__ == '__main__':
         ds_accuracy_acc += ds_accuracy
         sli_accuracy_acc += sli_accuracy
         dis_accuracy_acc += dis_accuracy
-        add_accuracy_acc += add_accuracy
+        succ_count_accuracy_acc += succ_count_accuracy
 
     # 画图
-    print("set_zero:",sz_accuracy_acc/trial," double:", dou_accuracy_acc/trial, " single:",sin_accuracy_acc/trial, " discount_slide:",ds_accuracy_acc/trial, " slide:",sli_accuracy_acc/trial, " discount:",dis_accuracy_acc/trial, " add:",add_accuracy_acc/trial,flush=True)
+    print("set_zero:",sz_accuracy_acc/trial," double:", dou_accuracy_acc/trial, " single:",sin_accuracy_acc/trial, " discount_slide:",ds_accuracy_acc/trial, " slide:",sli_accuracy_acc/trial, " discount:",dis_accuracy_acc/trial, " succ_count:",succ_count_accuracy_acc/trial,flush=True)
 
     plt.plot(np.array(range(1, Time + 1)), double_regret_accumulation / trial, label='双反馈')
     plt.plot(np.array(range(1, Time + 1)), set_zero_accumulation / trial,
@@ -113,8 +113,8 @@ if __name__ == '__main__':
              label='折扣系数' + ' 折扣系数:' + str(discount_factor_d))
     plt.plot(np.array(range(1, Time + 1)), discount_slide_window_accumulation / trial,
              label='折扣系数滑动窗口' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds))
-    plt.plot(np.array(range(1, Time + 1)), discount_slide_window_accumulation / trial,
-             label='增加折扣系数滑动窗口' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds)+' 增加:'+str(add)+' 减少:'+str(sub))
+    plt.plot(np.array(range(1, Time + 1)), succ_count_discount_slide_window_accumulation / trial,
+             label='增加折扣系数滑动窗口' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds)+' 增加:'+str(succ_count)+' 减少:'+str(fail_count))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
     plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))

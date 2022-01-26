@@ -21,8 +21,8 @@ if __name__ == '__main__':
     big_circle = setting.big_circle
     # 折扣系数
     
-    add = setting.add
-    sub = setting.sub
+    succ_count = setting.succ_count
+    fail_count = setting.fail_count
 
     rates = setting.rates
     # 两个
@@ -54,9 +54,9 @@ if __name__ == '__main__':
         dis_accuracy_acc = 0
         
         for i in range(trial):
-            discount_slide_window, ds_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, add, sub, best_arms)
+            discount_slide_window, ds_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, succ_count, fail_count, best_arms)
             print("discount slide finished",datetime.now().strftime("%H:%M:%S"), discount_factor, choices, flush=True)
-            discount, dis_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, discount_factor_d, Time, add, sub, best_arms)
+            discount, dis_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, discount_factor_d, Time, succ_count, fail_count, best_arms)
             print("discount finished",datetime.now().strftime("%H:%M:%S"), discount_factor, choices, flush=True)
             
             discount_slide_window_accumulation = discount_slide_window_accumulation + discount_slide_window

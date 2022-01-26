@@ -21,8 +21,8 @@ if __name__ == '__main__':
     big_circles = [600,1200,2400,3600,5000,10000,50000]
     # 折扣系数
     
-    add = setting.add
-    sub = setting.sub
+    succ_count = setting.succ_count
+    fail_count = setting.fail_count
 
     rates = setting.rates
     # 两个
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
-            slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, add, sub, best_arms)
+            slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
             print(big_circle,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy

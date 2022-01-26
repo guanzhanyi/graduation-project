@@ -2,7 +2,7 @@ import numpy as np
 
 
 class SlideWindow(object):
-    def __init__(self, arm_num, size, discount_factor, add, sub):
+    def __init__(self, arm_num, size, discount_factor, succ_count, fail_count):
         if size < 1:
             raise Exception('size不能小于1。x 的值为: {}'.format(size))
         self.cap = size
@@ -11,8 +11,8 @@ class SlideWindow(object):
         self.sums = [[0.0, 0.0] for i in range(arm_num)]
         self.queue = []
         self.arm_counts = [0 for i in range(arm_num)]
-        self.add = add
-        self.sub = sub
+        self.succ_count = succ_count
+        self.fail_count = fail_count
         self.arm_num = arm_num
 
     def is_full(self):
@@ -40,9 +40,9 @@ class SlideWindow(object):
         # 如果cho超过一半且cho失败了，失败次数增加
         # 如果有出现超过一半但不是cho，而且cho成功了，超过次数增加
         if elems[1] == 1 and self.is_any_arm_full(cho):
-            elems[1] = self.add
+            elems[1] = self.succ_count
         if elems[0] == 0 and self.is_cho_full(cho):
-            elems[2] = self.sub
+            elems[2] = self.fail_count
         self.sums = [[0.0, 0.0] for i in range(self.arm_num)]
         for i in range(0, len(self.queue)):
             index = self.queue[i][0]
@@ -61,7 +61,7 @@ class SlideWindow(object):
         return self.sums[arm_num]
 
 
-def d_slide_window(time_slot, pred_prob, trans_prob, rates, bests, circle, change_time, discount_factor, silde_size, add, sub, best_arms):
+def d_slide_window(time_slot, pred_prob, trans_prob, rates, bests, circle, change_time, discount_factor, silde_size, succ_count, fail_count, best_arms):
     TEST = 0
     arm_num = len(rates)
     pred_right_count = 0
@@ -73,7 +73,7 @@ def d_slide_window(time_slot, pred_prob, trans_prob, rates, bests, circle, chang
     a_n = np.array([0.0] * arm_num)
     b_n = np.array([0.0] * arm_num)
     # 滑动窗口
-    sw = SlideWindow(arm_num, int(silde_size), discount_factor, add, sub)
+    sw = SlideWindow(arm_num, int(silde_size), discount_factor, succ_count, fail_count)
     index = 0
     k = len(trans_prob)
     for t in range(time_slot):
