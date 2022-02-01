@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# other
+.txt
+
+.png
+
 # Distribution / packaging
 .Python
 build/
@@ -127,6 +132,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# other
-.txt

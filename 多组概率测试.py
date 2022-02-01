@@ -16,7 +16,7 @@ if __name__ == '__main__':
     # datetime slot
     Time = 100000
     # 实验次数
-    trial = 3
+    trial = setting.trial
     # 大周期
     big_circle = 9000
     # 折扣系数
@@ -118,4 +118,5 @@ if __name__ == '__main__':
     plt.ylabel('遗憾')
     plt.title(' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    plt.show()
+    plt.savefig('多组')
+    # plt.show()

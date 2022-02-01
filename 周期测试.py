@@ -1,3 +1,13 @@
+'''
+Author: guanzhanyi
+Date: 2022-01-26 15:11:40
+LastEditors: guanzhanyi
+LastEditTime: 2022-02-01 13:33:08
+FilePath: \graduation-project\周期测试.py
+Description: 
+
+Copyright (c) 2022 by guanzhanyi/xxx, All Rights Reserved. 
+'''
 import setting
 import ss_window
 
@@ -16,7 +26,7 @@ if __name__ == '__main__':
     # datetime slot
     Time = 100000
     # 实验次数
-    trial = 3
+    trial = setting.trial
     # 大周期
     big_circles = [600,1200,2400,3600,5000,10000,50000]
     # 折扣系数
@@ -62,4 +72,5 @@ if __name__ == '__main__':
     plt.ylabel('遗憾')
     plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    plt.show()
+    # plt.show()
+    plt.savefig('周期')

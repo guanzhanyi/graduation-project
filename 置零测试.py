@@ -1,3 +1,13 @@
+'''
+Author: guanzhanyi
+Date: 2022-01-25 23:32:05
+LastEditors: guanzhanyi
+LastEditTime: 2022-02-01 13:25:36
+FilePath: \graduation-project\置零测试.py
+Description: 
+
+Copyright (c) 2022 by guanzhanyi/xxx, All Rights Reserved. 
+'''
 import set_zero
 import setting
 import numpy as np
@@ -14,7 +24,7 @@ print(datetime.now())
 if __name__ == '__main__':
     Time = setting.Time
     # 实验次数
-    trial = 3
+    trial = setting.trial
     # 大周期
     big_circle = setting.big_circle
     # 置零偏差
@@ -54,4 +64,4 @@ if __name__ == '__main__':
     plt.ylabel('遗憾')
     plt.title(' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    plt.show()
+    plt.savefig('置零')

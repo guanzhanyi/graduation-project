@@ -226,7 +226,7 @@ if __name__ == '__main__':
     # datetime slot
     Time = setting.Time
     # 实验次数
-    trial = 3
+    trial = setting.trial
     # 大周期
     big_circle = setting.big_circle
     # 折扣系数
@@ -494,7 +494,7 @@ if __name__ == '__main_ _':
     # datetime slot
     Time = setting.Time
     # 实验次数
-    trial = 3
+    trial = setting.trial
     # 大周期
     big_circle = setting.big_circle
     # 折扣系数
@@ -548,7 +548,7 @@ if __name__ == '__main_ _':
     # datetime slot
     Time = setting.Time
     # 实验次数
-    trial = 3
+    trial = setting.trial
     # 大周期
     big_circle = setting.big_circle
     # 折扣系数
