@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:56
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-01 13:27:36
+LastEditTime: 2022-02-08 12:34:04
 FilePath: \graduation-project\增加测试.py
 Description: 
 
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     # plt.show()
-    plt.savefig('增加')
+    plt.savefig('增加',dpi=300)

@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:32:05
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-01 13:25:36
+LastEditTime: 2022-02-08 12:40:21
 FilePath: \graduation-project\置零测试.py
 Description: 
 
@@ -64,4 +64,4 @@ if __name__ == '__main__':
     plt.ylabel('遗憾')
     plt.title(' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    plt.savefig('置零')
+    plt.savefig('置零',dpi=300)

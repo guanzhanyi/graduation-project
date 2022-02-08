@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:34:05
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-01 13:28:03
+LastEditTime: 2022-02-08 12:39:46
 FilePath: \graduation-project\减少测试.py
 Description: 
 
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     # plt.show()
-    plt.savefig('减少')
+    plt.savefig('减少',dpi=300)

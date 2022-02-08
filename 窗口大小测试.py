@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:30
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-01 13:34:34
+LastEditTime: 2022-02-08 12:40:16
 FilePath: \graduation-project\窗口大小测试.py
 Description: 
 
@@ -78,4 +78,4 @@ if __name__ == '__main__':
     plt.ylabel('遗憾')
     plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    plt.savefig('窗口')
+    plt.savefig('窗口',dpi=300)

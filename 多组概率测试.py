@@ -118,5 +118,5 @@ if __name__ == '__main__':
     plt.ylabel('遗憾')
     plt.title(' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    plt.savefig('多组')
+    plt.savefig('多组',dpi=300)
     # plt.show()
