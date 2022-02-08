@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:56
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 12:34:04
+LastEditTime: 2022-02-08 16:14:01
 FilePath: \graduation-project\增加测试.py
 Description: 
 
@@ -59,6 +59,7 @@ if __name__ == '__main__':
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
+            print(succ_count,trial,flush=True)
             slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
             print(succ_count,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
