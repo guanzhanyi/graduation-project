@@ -116,7 +116,7 @@ if __name__ == '__main__':
     plt.plot(np.array(range(1, Time + 1)), slide_window_accumulation / trial, label='滑动窗口')
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title(' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.savefig('多组',dpi=300)
     # plt.show()

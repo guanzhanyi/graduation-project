@@ -71,7 +71,7 @@ if __name__ == '__main__':
                 label='滑动窗口'+' 周期:' + str(big_circle))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     # plt.show()
     plt.savefig('周期',dpi=300)

@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:43
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 16:14:26
+LastEditTime: 2022-02-08 16:21:37
 FilePath: \graduation-project\折扣系数测试.py
 Description: 
 
@@ -83,6 +83,6 @@ if __name__ == '__main__':
                 label='折扣滑动' + ' 折扣系数:' + str(discount_factor_ds))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.savefig('折扣',dpi=300)

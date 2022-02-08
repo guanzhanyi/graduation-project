@@ -62,6 +62,6 @@ if __name__ == '__main__':
 
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title(' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.savefig('置零',dpi=300)

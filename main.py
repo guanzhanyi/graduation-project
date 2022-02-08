@@ -111,7 +111,7 @@ if __name__ == '__main_ _':
              label='折扣系数滑动窗口双反馈' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -159,7 +159,7 @@ if __name__ == '__main_ _':
 
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 # double 与 single 比较
@@ -216,7 +216,7 @@ if __name__ == '__main_ _':
 
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -300,7 +300,7 @@ if __name__ == '__main__':
              label='折扣系数滑动窗口双反馈' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -359,7 +359,7 @@ if __name__ == '__main_ _':
                 label='折扣系数滑动窗口双反馈' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -432,7 +432,7 @@ if __name__ == '__main_ _':
                 label='折扣系数滑动窗口双反馈' + ' 容量:' + str(slide_window_side)+ ' 折扣系数:' + str(discount_factor_ds))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -484,7 +484,7 @@ if __name__ == '__main_ _':
                 label='滑动窗口双反馈'+' 窗口容量:' + str(slide_window_side))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -537,7 +537,7 @@ if __name__ == '__main_ _':
                 label='滑动窗口双反馈'+' succ_count:' + str(succ_count))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
 
@@ -591,6 +591,6 @@ if __name__ == '__main_ _':
                 label='滑动窗口双反馈'+' succ_count:' + str(fail_count))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真结果' + ' 仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     plt.show()
