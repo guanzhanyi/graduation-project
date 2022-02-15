@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:32:05
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 12:40:21
+LastEditTime: 2022-02-15 16:19:22
 FilePath: \graduation-project\置零测试.py
 Description: 
 
@@ -53,15 +53,15 @@ if __name__ == '__main__':
         sz_accuracy_acc = 0
         print("偏差:",piancha)
         for i in range(trial):
-            print("trial: ", i, flush=True)
             set_zero_regret,  sz_accuracy, choices = set_zero.d_set_zero(Time, pred_prob, trans_prob,rates, bests, big_circle, small_circle, piancha, best_arms)
             set_zero_accumulation += set_zero_regret
             sz_accuracy_acc+=sz_accuracy
-            print(choices)
+            # print(choices)
+        
         plt.plot(np.array(range(1, Time + 1)), set_zero_accumulation / trial,label='偏差:'+str(piancha))
-
+        print(set_zero_accumulation / trial)
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle))
     plt.legend()
     plt.savefig('置零',dpi=300)

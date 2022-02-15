@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:56
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 16:21:16
+LastEditTime: 2022-02-12 12:40:19
 FilePath: \graduation-project\成功次数测试.py
 Description: 
 
@@ -66,12 +66,12 @@ if __name__ == '__main__':
             sli_accuracy_acc+=sli_accuracy
 
     # 画图
-        print(" slide:",sli_accuracy_acc/trial, flush=True)
+        print(str(succ_count),":",sli_accuracy_acc/trial, flush=True)
+        print(str(succ_count),":",slide_window_accumulation/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), slide_window_accumulation / trial,
                 label='滑动窗口双反馈'+' succ_count:' + str(succ_count))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
     plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
-    # plt.show()
     plt.savefig('成功',dpi=300)

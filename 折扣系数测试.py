@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:43
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 16:21:37
+LastEditTime: 2022-02-15 16:50:07
 FilePath: \graduation-project\折扣系数测试.py
 Description: 
 
@@ -63,11 +63,11 @@ if __name__ == '__main__':
         dis_accuracy_acc = 0
         
         for i in range(trial):
-            print(discount_factor,trial,flush=True)
+            #print(discount_factor,trial,flush=True)
             discount_slide_window, ds_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, succ_count, fail_count, best_arms)
-            print("discount slide finished",datetime.now().strftime("%H:%M:%S"), discount_factor, choices, flush=True)
+            #print("discount slide finished",datetime.now().strftime("%H:%M:%S"), discount_factor, choices, flush=True)
             discount, dis_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, discount_factor_d, Time, succ_count, fail_count, best_arms)
-            print("discount finished",datetime.now().strftime("%H:%M:%S"), discount_factor, choices, flush=True)
+            #print("discount finished",datetime.now().strftime("%H:%M:%S"), discount_factor, choices, flush=True)
             
             discount_slide_window_accumulation = discount_slide_window_accumulation + discount_slide_window
             discount_accumulation = discount_accumulation + discount
@@ -76,7 +76,10 @@ if __name__ == '__main__':
             dis_accuracy_acc+=dis_accuracy
 
     # 画图
-        print(" discount_slide:",ds_accuracy_acc/trial, " discount:",dis_accuracy_acc/trial, flush=True)
+        print(" ds_accuracy_acc:",ds_accuracy_acc/trial, " discount:",ds_accuracy_acc/trial, flush=True)
+        print(" dis_accuracy_acc:",dis_accuracy_acc/trial, " discount:",dis_accuracy_acc/trial, flush=True)
+        print(str(discount_factor), " ds_accuracy_acc:",discount_accumulation/trial, " discount:",discount_accumulation/trial, flush=True)
+        print(str(discount_factor), "dis_accuracy_acc:",discount_slide_window_accumulation/trial, " discount:",discount_slide_window_accumulation/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), discount_accumulation / trial,
                 label='折扣系数' + ' 折扣系数:' + str(discount_factor_d))
         plt.plot(np.array(range(1, Time + 1)), discount_slide_window_accumulation / trial,

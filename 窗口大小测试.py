@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:30
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 16:14:39
+LastEditTime: 2022-02-15 16:50:29
 FilePath: \graduation-project\窗口大小测试.py
 Description: 
 
@@ -72,7 +72,8 @@ if __name__ == '__main__':
             ds_accuracy_acc+=ds_accuracy
 
     # 画图
-        print(" discount_slide:",ds_accuracy_acc/trial, flush=True)
+        print(str(slide_window_side), " discount_slide:",ds_accuracy_acc/trial, flush=True)
+        print(str(slide_window_side), " discount_slide:",discount_slide_window_accumulation/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), discount_slide_window_accumulation / trial,
                 label=' 容量:' + str(slide_window_side))
     plt.xlabel('时隙')

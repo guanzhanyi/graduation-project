@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-26 15:11:40
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 16:13:42
+LastEditTime: 2022-02-15 16:58:40
 FilePath: \graduation-project\周期测试.py
 Description: 
 
@@ -59,14 +59,15 @@ if __name__ == '__main__':
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
-            print(big_circle,trial,flush=True)
+            #print(big_circle,trial,flush=True)
             slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
             print(big_circle,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy
 
     # 画图
-        print(" slide:",sli_accuracy_acc/trial, flush=True)
+        print(str(big_circle)," sli_accuracy_acc",":",sli_accuracy_acc/trial, flush=True)
+        print(str(big_circle)," slide_window_accumulation",":",slide_window_accumulation/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), slide_window_accumulation / trial,
                 label='滑动窗口'+' 周期:' + str(big_circle))
     plt.xlabel('时隙')

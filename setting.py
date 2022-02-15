@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-26 12:56:14
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 12:41:41
+LastEditTime: 2022-02-08 16:31:20
 FilePath: \graduation-project\setting.py
 Description: 
 
@@ -32,6 +32,6 @@ discount_factor_ds = 1
 # 折扣TS算法折扣系数
 discount_factor_d = 1
 # 实验次数
-trial = 5000
+trial = 1
 # print(trans_prob[0]*pred_prob*rates)
 # print(trans_prob[1]*pred_prob*rates)
