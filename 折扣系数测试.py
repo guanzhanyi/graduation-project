@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:43
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-15 16:50:07
+LastEditTime: 2022-02-15 17:15:58
 FilePath: \graduation-project\折扣系数测试.py
 Description: 
 
@@ -18,6 +18,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
 sys.stdout = open('_折扣系数测试.txt', 'a',encoding='utf8')
+np.set_printoptions(threshold=100000000000)
 
 print(datetime.now())
 

@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:30
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-15 16:50:29
+LastEditTime: 2022-02-15 18:28:40
 FilePath: \graduation-project\窗口大小测试.py
 Description: 
 
@@ -18,6 +18,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
 sys.stdout = open('_窗口大小测试.txt', 'a',encoding='utf8')
+np.set_printoptions(threshold=100000000000)
 
 print(datetime.now())
 
@@ -64,9 +65,9 @@ if __name__ == '__main__':
         sli_accuracy_acc = 0
         dis_accuracy_acc = 0
         for i in range(trial):
-            print(slide_window_side,trial,flush=True)
+            #print(slide_window_side,trial,flush=True)
             discount_slide_window, ds_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, succ_count, fail_count, best_arms)
-            print("discount slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+            #print("discount slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             discount_slide_window_accumulation = discount_slide_window_accumulation + discount_slide_window
 
             ds_accuracy_acc+=ds_accuracy

@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-26 15:11:40
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-15 16:58:40
+LastEditTime: 2022-02-15 18:27:49
 FilePath: \graduation-project\周期测试.py
 Description: 
 
@@ -20,6 +20,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 import sys
 sys.stdout = open('_周期测试.txt', 'a',encoding='utf8')
 print(datetime.now())
+np.set_printoptions(threshold=100000000000)
 
 if __name__ == '__main__':
     # 生成50个trans_prob
@@ -61,7 +62,7 @@ if __name__ == '__main__':
         for i in range(trial):
             #print(big_circle,trial,flush=True)
             slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
-            print(big_circle,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+            #print(big_circle,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy
 

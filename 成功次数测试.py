@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:56
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-12 12:40:19
+LastEditTime: 2022-02-15 18:28:30
 FilePath: \graduation-project\成功次数测试.py
 Description: 
 
@@ -20,6 +20,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 import sys
 sys.stdout = open('_增加测试.txt', 'a',encoding='utf8')
 print(datetime.now())
+np.set_printoptions(threshold=100000000000)
 
 if __name__ == '__main__':
     # 生成50个trans_prob
@@ -59,9 +60,9 @@ if __name__ == '__main__':
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
-            print(succ_count,trial,flush=True)
+            #print(succ_count,trial,flush=True)
             slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
-            print(succ_count,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+            #print(succ_count,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy
 

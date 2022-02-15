@@ -13,6 +13,7 @@ import sys
 sys.stdout = open('_总测试.txt', 'a',encoding='utf8')
 
 print(datetime.now())
+np.set_printoptions(threshold=100000000000)
 
 # 总测试
 if __name__ == '__main__':
@@ -68,21 +69,21 @@ if __name__ == '__main__':
     best_arms = np.array(best_arms)
 
     for i in range(trial):
-        print("trial: ", i, flush=True)
+        #print("trial: ", i, flush=True)
         set_zero_regret,  sz_accuracy, choices = set_zero.d_set_zero(Time, pred_prob, trans_prob,rates, bests, big_circle, small_circle, piancha, best_arms)
-        print("set zero finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("set zero finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         double_regret , dou_accuracy, choices= double_feedback.double_feedback(Time, pred_prob, trans_prob, rates, bests,big_circle, small_circle,best_arms)
-        print("double finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("double finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         single_regret, sin_accuracy, choices = single_feedback.single_feedback(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, best_arms)
-        print("single finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("single finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         discount_slide_window, ds_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, 1, 1, best_arms)
-        print("discount slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("discount slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, 1, 1, best_arms)
-        print("slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("slide finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         discount, dis_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, discount_factor_d, Time, 1, 1, best_arms)
-        print("discount finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("discount finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
         succ_count_regret, succ_count_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle,discount_factor_ds, slide_window_side, succ_count, fail_count, best_arms)
-        print("succ_count finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+        #print("succ_count finished",datetime.now().strftime("%H:%M:%S"), choices, flush=True)
 
         double_regret_accumulation += double_regret
         set_zero_accumulation += set_zero_regret
@@ -102,6 +103,7 @@ if __name__ == '__main__':
 
     # 画图
     print("set_zero:",sz_accuracy_acc/trial," double:", dou_accuracy_acc/trial, " single:",sin_accuracy_acc/trial, " discount_slide:",ds_accuracy_acc/trial, " slide:",sli_accuracy_acc/trial, " discount:",dis_accuracy_acc/trial, " succ_count:",succ_count_accuracy_acc/trial,flush=True)
+    print("set_zero:",set_zero_accumulation/trial," double:", double_regret_accumulation/trial, " single:",single_regret_accumulation/trial, " discount_slide:",discount_slide_window_accumulation/trial, " slide:",slide_window_accumulation/trial, " discount:",discount_accumulation/trial, " succ_count:",succ_count_discount_slide_window_accumulation/trial,flush=True)
 
     plt.plot(np.array(range(1, Time + 1)), double_regret_accumulation / trial, label='双反馈')
     plt.plot(np.array(range(1, Time + 1)), set_zero_accumulation / trial,

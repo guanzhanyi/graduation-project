@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:34:05
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-12 12:32:36
+LastEditTime: 2022-02-15 18:28:07
 FilePath: \graduation-project\失败次数测试.py
 Description: 
 
@@ -18,6 +18,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
 sys.stdout = open('_减少测试.txt', 'a',encoding='utf8')
+np.set_printoptions(threshold=100000000000)
 
 print(datetime.now())
 
@@ -59,9 +60,9 @@ if __name__ == '__main__':
         slide_window_accumulation = np.array([0.0] * Time)
         sli_accuracy_acc = 0
         for i in range(trial):
-            print(fail_count,trial,flush=True)
+            #print(fail_count,trial,flush=True)
             slide_window, sli_accuracy, choices = ss_window.d_slide_window(Time, pred_prob, trans_prob, rates, bests, big_circle, small_circle, 1,slide_window_side, succ_count, fail_count, best_arms)
-            print(fail_count,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
+            #print(fail_count,datetime.now().strftime("%H:%M:%S"), choices, flush=True)
             slide_window_accumulation = slide_window_accumulation + slide_window
             sli_accuracy_acc+=sli_accuracy
 

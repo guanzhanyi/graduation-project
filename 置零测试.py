@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:32:05
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-15 16:19:22
+LastEditTime: 2022-02-15 18:29:17
 FilePath: \graduation-project\置零测试.py
 Description: 
 
@@ -18,6 +18,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
 sys.stdout = open('_置零测试.txt', 'a',encoding='utf8')
+np.set_printoptions(threshold=100000000000)
 
 print(datetime.now())
 
@@ -59,7 +60,8 @@ if __name__ == '__main__':
             # print(choices)
         
         plt.plot(np.array(range(1, Time + 1)), set_zero_accumulation / trial,label='偏差:'+str(piancha))
-        print(set_zero_accumulation / trial)
+        print(str(piancha), set_zero_accumulation / trial)
+        print(str(piancha), sz_accuracy_acc / trial)
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
     plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle))
