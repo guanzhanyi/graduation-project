@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-25 23:33:56
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-15 18:28:30
+LastEditTime: 2022-03-13 00:10:04
 FilePath: \graduation-project\成功次数测试.py
 Description: 
 
@@ -19,7 +19,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 import sys
 sys.stdout = open('_增加测试.txt', 'a',encoding='utf8')
-print(datetime.now())
+# print(datetime.now())
 np.set_printoptions(threshold=100000000000)
 
 if __name__ == '__main__':
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     big_circle = setting.big_circle
     # 折扣系数
     
-    succ_counts = [1,2,3,4,5,6,7,8,9,10]
+    succ_counts = [1,2,4,6,8,10]
     fail_count = setting.fail_count
 
     rates = setting.rates
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     trans_prob = setting.trans_prob
     # 滑动窗口大小
     small_circle = big_circle // len(trans_prob)
-    print("trans_prob:\n", trans_prob)
+    # print("trans_prob:\n", trans_prob)
     # 预测概率分布
     pred_prob = setting.pred_prob
     bests = []
@@ -67,12 +67,12 @@ if __name__ == '__main__':
             sli_accuracy_acc+=sli_accuracy
 
     # 画图
-        print(str(succ_count),":",sli_accuracy_acc/trial, flush=True)
+        # print(str(succ_count),":",sli_accuracy_acc/trial, flush=True)
         print(str(succ_count),":",slide_window_accumulation/trial, flush=True)
         plt.plot(np.array(range(1, Time + 1)), slide_window_accumulation / trial,
                 label='滑动窗口双反馈'+' succ_count:' + str(succ_count))
     plt.xlabel('时隙')
     plt.ylabel('遗憾')
-    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
+    plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle))
     plt.legend()
-    plt.savefig('成功',dpi=300)
+    plt.savefig('成功.pdf',dpi=300)

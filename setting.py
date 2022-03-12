@@ -2,7 +2,7 @@
 Author: guanzhanyi
 Date: 2022-01-26 12:56:14
 LastEditors: guanzhanyi
-LastEditTime: 2022-02-08 16:31:20
+LastEditTime: 2022-03-13 00:16:38
 FilePath: \graduation-project\setting.py
 Description: 
 
@@ -28,10 +28,10 @@ fail_count = 2
 # 置零偏差时机
 piancha = 0 
 # 置零滑动窗口算法折扣系数
-discount_factor_ds = 1
+discount_factor_ds = 0.99
 # 折扣TS算法折扣系数
-discount_factor_d = 1
+discount_factor_d = 0.99
 # 实验次数
-trial = 1
+trial = 1000
 # print(trans_prob[0]*pred_prob*rates)
-# print(trans_prob[1]*pred_prob*rates)
+# print(trans_prob[1]*pred_prob*rates)  

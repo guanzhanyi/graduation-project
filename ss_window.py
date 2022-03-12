@@ -25,7 +25,7 @@ class SlideWindow(object):
         return False
 
     def is_cho_full(self, cho):
-        if self.arm_counts[cho] > self.cap//2:
+        if self.arm_counts[cho] > self.cap//3:
             return True
         return False
 
