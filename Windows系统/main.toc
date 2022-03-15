@@ -1,0 +1,42 @@
+\contentsline {paragraph}{\CJKfamily {zhsong}\zihao {-4}\bf {关键词:}}{I}{paragraph*.2}%
+\contentsline {paragraph}{\textbf {Keywords:}}{III}{paragraph*.3}%
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}绪论}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}选题背景与意义}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}国内外研究现状和相关工作}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}本文的研究内容与主要工作}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}本文的论文结构与章节安排}{3}{section.1.4}%
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}相关工作}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}已有的360度视频传输算法}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}已有的基于MAB的360度视频传输算法及缺陷}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}本章小结}{6}{section.2.3}%
+\contentsline {chapter}{\numberline {第3章\hspace {.3em}}360度视频传输建模}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}视频传输的两层反馈}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}两层MAB模型}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}本章小结}{9}{section.3.3}%
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}算法设计}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}周期性重置Thompson Sampling算法}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}基于折扣的Thompson Sampling算法}{14}{section.4.2}%
+\contentsline {section}{\numberline {4.3}基于滑动窗口的Thompson Sampling算法}{16}{section.4.3}%
+\contentsline {section}{\numberline {4.4}基于增加次数的滑动窗口Thompson Sampling算法}{17}{section.4.4}%
+\contentsline {section}{\numberline {4.5}基于折扣、增加次数和滑动窗口的Thompson Sampling算法}{20}{section.4.5}%
+\contentsline {section}{\numberline {4.6}本章小结}{20}{section.4.6}%
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}仿真实验}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}置零时机对TS算法的影响}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}总体比较}{22}{section.5.2}%
+\contentsline {section}{\numberline {5.3}窗口容量对TS算法的影响}{23}{section.5.3}%
+\contentsline {section}{\numberline {5.4}折扣系数对TS算法的影响}{24}{section.5.4}%
+\contentsline {section}{\numberline {5.5}增加失败次数对TS算法的影响}{25}{section.5.5}%
+\contentsline {section}{\numberline {5.6}增加成功次数对TS算法的影响}{25}{section.5.6}%
+\contentsline {section}{\numberline {5.7}折扣滑动窗口TS算法深入探索}{26}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}不同周期下折扣滑动窗口TS算法效果比较}{26}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}多种传输概率变换下折扣滑动窗口TS算法效果比较}{26}{subsection.5.7.2}%
+\contentsline {section}{\numberline {5.8}总结}{28}{section.5.8}%
+\contentsline {chapter}{\numberline {第6章\hspace {.3em}}总结与展望}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}工作总结}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}研究展望}{29}{section.6.2}%
+\contentsline {chapter}{相关的科研成果目录}{31}{chapter*.24}%
+\contentsline {chapter}{致谢}{33}{chapter*.25}%
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}补充更多细节}{35}{appendix.A}%
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}多附录}{37}{appendix.B}%
+\contentsline {section}{\numberline {附B.1}多附录}{37}{section.B.1}%
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}参考文献}{38}{appendix.C}%

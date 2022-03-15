@@ -1,0 +1,58 @@
+\documentclass{classes/sysuthesis}
+
+\input{docs/Information}     % 论文相关信息
+\input{docs/Proposal}   % 开题报告内容
+\input{docs/Abstract}     % 摘要内容
+\input{docs/Grading}    % 成绩评定记录表评语
+\input{docs/Progress}   % 过程检查报告数据
+\begin{document}
+    % 论文前置部分
+    \frontmatter
+        \pagenumbering{Roman}
+        \makeUndergraduateCover    % 封面
+        \makeUndergraduateTitlePage   % 扉页
+        \makeProposal% 开题报告
+        \makeDefenseRecord  % 答辩情况等级表
+        \makedisclaim       % 学术诚信声明
+        \makeabstract       % 中英文摘要
+        \maketableofcontents        % 目录
+
+    % 论文主体部分
+    \mainmatter
+        % 绪论
+
+        % 正文
+        \include{docs/Chapter_01}
+        \newclearpage
+        \include{docs/Chapter_02}
+        \newclearpage
+        \include{docs/Chapter_03}
+        \newclearpage
+        \include{docs/Chapter_04}
+        \newclearpage
+        \include{docs/Chapter_05}
+        \newclearpage
+        \include{docs/Chapter_06}
+        \newclearpage
+        % 结语
+
+    % 附录部分
+    \backmatter
+        % 参考文献
+        \makereference
+        \newclearpage
+
+		\include{docs/Achievement}    % 科研成果目录
+		\newclearpage
+		
+        \include{docs/Acknowledgements}    % 致谢
+        \newclearpage
+        % 附录
+    \appendix
+        \include{docs/Appendix1}
+        \newclearpage
+        \include{docs/Appendix2}
+        \newclearpage
+    \makeGrade      % 成绩评定记录表
+\end{document}
+

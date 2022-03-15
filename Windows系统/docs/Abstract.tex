@@ -1,0 +1,21 @@
+%%
+% 摘要信息
+% 摘要内容应概括地反映出本论文的主要内容，主要说明本论文的研究目的、内容、方法、成果和结论。要突出本论文的创造性成果或新见解，不要与引言相 混淆。语言力求精练、准确，以 300—500 字为宜。
+% 关键词是供检索用的主题词条，应采用能覆盖论文主要内容的通用技术词条(参照相应的技术术语 标准)。按词条的外延层次排列（外延大的排在前面）。。
+
+
+\cabstract{
+	360度全景视频以其身临其境的体验而备受关注。与具有相同的分辨率的传统视频流不同，它通常的带宽消耗是传统视频的4-6倍。不过用户并不能一次把360度视频全部内容尽收眼底，而是每次只能看到360个场景中的一部分（大约20\%）。因此，如果我们能够准确预测用户的视场（Field of View，FoV）的移动，传输360全景视频对应的部分，就足以满足用户需求。在实践中，为了减少预测用户FoV失败的概率，我们通常传输比FoV更大的部分。传输的部分越大，预测成功的概率就越高。然而，这将导致越低的传输成功概率。我们的目标是选择适当的交付部分，以最大限度地提高系统吞吐量。这可以表述为多臂老虎机（Multi-armed Bandit）问题，其中每个臂代表传输的速率。多臂老虎机问题一个常用的解决方法是汤普森采样（Thompson Sampling）。目前有文章提出的两层反馈的汤普森采样能够更加有效的解决360度全景视频的传输。考虑到现实世界中传输信道容量具有时变性。本文基于具有两层反馈的汤普森采样，提出了包括基于周期置零、滑动窗口和具有折扣系数的滑动窗口等新的汤普森采样算法，并通过仿真实验证明了本文提出的算法在时变信道中表现的更加优秀。
+}
+% 中文关键词(每个关键词之间用“;”分开,最后一个关键词不打标点符号。)
+\ckeywords{强化学习；MAB问题；汤普森采样；时变信道 }
+
+\eabstract{
+	360-degree panoramic video has gained much attention for its immersive experience. Unlike traditional video streaming with the same resolution, it typically consumes 4-6 times more bandwidth than traditional video. However, users cannot take in all of the 360-degree video at once, but can only see a fraction (about 20\%) of the 360 scenes at a time. Therefore, if we can accurately predict the movement of the user's Field of View (FoV) and transmit the corresponding part of the 360 panoramic video, it is sufficient to meet the user's demand. In practice, to reduce the probability of failure in predicting the user's FoV, we usually transmit a larger portion than the FoV. The larger the transmitted part, the higher the probability of prediction success. However, this will result in a lower probability of transmission success. Our goal is to select the appropriate delivered fraction to maximize the system throughput. This can be formulated as a Multi-armed Bandit (MAB) problem, where each arm represents the rate of transmission. A common solution to the Multi-armed Bandit problem is Thompson Sampling. The two-level feedback Thompson Sampling proposed in the current paper can solve the transmission of 360-degree panoramic video more effectively. Considering the time-varying transmission channel capacity in the real world. In this paper, we propose a new Thompson sampling algorithm based on Thompson sampling with two levels of feedback, including period-based zeroing, sliding window and sliding window with discount factor, and demonstrate through simulation experiments that the proposed algorithm performs better in time-varying channels.
+	
+	
+	
+	
+}
+% 英文文关键词（关键词之间用逗号隔开，最后一个关键词不打标点符号。）
+\ekeywords{Reinforcement learning, MAB problem, Thompson Sampling, time-varying channel}

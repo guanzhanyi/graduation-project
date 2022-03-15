@@ -122,5 +122,5 @@ if __name__ == '__main__':
     plt.title('仿真次数:' + str(trial) + ' 周期:' + str(big_circle) + ' 传输概率组数:' + str(len(trans_prob)))
     plt.legend()
     #plt.show()
-    plt.savefig('总',dpi=300)
+    plt.savefig('总.pdf',dpi=300)
             
